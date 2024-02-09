@@ -8,19 +8,16 @@ export default {
   components: { AppHeader },
   data: () => ({ store }),
   methods: {
-    setTitleFilter(term) {
-      store.filter = term;
-    },
+
     searchMovie(titleFilter) {
-      const { baseUri, language, apikey } = api;
+      const { baseUri, language, apiKey } = api;
 
       const params = {
-        query: store.filter,
-        api_key: apikey,
+        query: store.searchText,
+        api_key: apiKey,
         language
       }
-
-      axios.get(`https://api.themoviedb.org/3/search/movie/api_key=05f372157df638c3b03248563b484a00&language=it-It&query=${store.filter}`)
+      axios.get(`${baseUri}/search/movie`, { params })
         .then((res) => { store.movies = res.data.results })
         .catch((err) => {
           console.error(err)
@@ -31,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @form-submit="searchMovie" />
+  <AppHeader @form-submit="searchMovie(titleFilter)" />
 </template>
 
 <style scoped></style>

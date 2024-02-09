@@ -1,6 +1,6 @@
 const api = {
     baseUri: "https://api.themoviedb.org/3",
-    apiKey: "05f372157df638c3b03248563b484a00",
+    apiKey: "e0d18cee62341b7b8454933223ff331f",
     language: "it-It"
 
 }

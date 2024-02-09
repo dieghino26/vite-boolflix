@@ -1,7 +1,8 @@
 <script>
+import { store } from "../data/store"
 export default {
     name: "AppHeader",
-    data: () => ({ term: "" }),
+    data: () => ({ store }),
     emits: ["form-submit"]
 }
 </script>
@@ -9,9 +10,12 @@ export default {
 <template>
     <header>
         <h1>Boolflix</h1>
-        <form @submit.prevent="$emit(`form-submit`, term)">
-            <input type="text" v-model.trim="term">
-            <button>Cerca</button>
-        </form>
+        <div>
+            <input v-model="store.searchText" type="text" placeholder="Cerca il tuo film preferito"
+                @keyup.enter="$emit('form-submit')">
+            <button @click="$emit('form-submit')">
+                Cerca
+            </button>
+        </div>
     </header>
 </template>
