@@ -1,6 +1,6 @@
 <script>
 import { store } from "./data/store"
-import { index } from "./data/index"
+import { api } from "./data/index"
 import AppHeader from './components/AppHeader.vue';
 export default {
   name: "Boolflix",
